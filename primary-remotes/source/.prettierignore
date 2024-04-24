@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+config
+.eslintrc.js
+jest.config.js
+webpack.*
+.drakkar
+documentation
+.DS_Store
+*.md

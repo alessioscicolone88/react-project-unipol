@@ -1,0 +1,6 @@
+{
+  "npmClient": "npm",
+  "packages": ["packages/core-remotes/*"],
+  "useNx": true,
+  "version": "1.0.0"
+}
