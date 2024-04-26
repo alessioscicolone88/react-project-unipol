@@ -7,9 +7,9 @@ import {
 } from "@tpd-web-common-libs/nodejs-library";
 import { ContainerDiv } from "./App.style";
 import styled from "@emotion/styled";
-import createCache from "@emotion/.cache-LybkyjQG";
-import { CacheProvider } from "@emotion/.react-SsLsVuBy";
-import { EditablePage, EditorContextHelper } from "@magnolia/react-editor";
+import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
+// import { EditablePage, EditorContextHelper } from "@magnolia/react-editor";
 
 const App = (props: CommonMFE.Types.TProps) => {
   const { __host__, config, isEditMode, id: containerID } = props;
