@@ -5,18 +5,18 @@ export const ContainerDiv = styled.div<{ isVisible: boolean }>`
   margin-top: ${(props) => props["data-margin-top"]};
   margin-bottom: ${(props) => props["data-margin-bottom"]};
   display: ${(props) => (props.isVisible ? "block" : "none")};
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
 
   ${Styles.BreakpointsUtils.mobileOnly(`
     padding-top: 19px;
   `)}
 
-  .tpd-side-text {
+  /* .tpd-side-text {
     ${Styles.BreakpointsUtils.mobileOnly(`
       margin-top: 30px;
     `)}
-  }
+  } */
 
   .tpd-testo-immagine
     .tpd-image
@@ -29,9 +29,16 @@ export const ContainerDiv = styled.div<{ isVisible: boolean }>`
   }
 
   .tpd-testo-immagine {
-    display: flex;
-    flex-direction: column;
+    display: grid !important;
+    grid-template-columns: 50% 50% !important;
+    margin: 0 !important;
+    max-height: 400px !important;
     font-family: Unipol;
+  }
+
+  .tpd-side-text, .tpd-image {
+    width: 100% !important;
+    padding: 0 !important;
   }
 
   .tpd-testo-immagine .tpd-side-text {
@@ -39,7 +46,16 @@ export const ContainerDiv = styled.div<{ isVisible: boolean }>`
   }
 
   .tpd-side-text .tpd-side-text-wrapper {
-    padding: 0 calc(100% * (1 / 24));
+    padding: 0 20px !important;
+    background: linear-gradient(
+      180deg,
+      #5393bc,
+      28%,
+      #255f90
+    ) !important;
+    display: flex !important;
+    justify-content: center !important;
+    height: 100% !important;
   }
 
   .tpd-content-description {
@@ -47,9 +63,13 @@ export const ContainerDiv = styled.div<{ isVisible: boolean }>`
   }
 
   .tpd-side-text .tpd-side-text-wrapper .tpd-content-description {
-    margin-bottom: 30px;
-    font-size: 16px;
-    color: #333;
+    /* margin-bottom: 30px; */
+    /* font-size: 16px; */
+    color: #fff;
+    font-size: 40px;
+    line-height: normal;
+    font-weight: 500;
+    word-break: break-word;
   }
 
   .tpd-content-description
@@ -85,13 +105,13 @@ export const ContainerDiv = styled.div<{ isVisible: boolean }>`
 
   .tpd-image .tpd-image-container .tpd-image-preview-mode-container {
     position: relative;
-    height: 308px;
+    height: 100% !important;
     padding: 0;
   }
 
   .tpd-image .tpd-image-container .tpd-image-preview-mode-container img {
     width: 100%;
-    height: 308px;
+    height: 400px !important;
     object-fit: cover;
     object-position: 50% 50%;
   }
@@ -192,5 +212,23 @@ export const ContainerDiv = styled.div<{ isVisible: boolean }>`
       width: 40%;
       line-height: 1.42857143;
     }
+    
   `)}
+
+@media screen and (max-width: 768px) {
+  .tpd-testo-immagine {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .tpd-image .tpd-image-container .tpd-image-preview-mode-container img {
+    height: 250px !important;
+  }
+  .tpd-side-text .tpd-side-text-wrapper {
+    height: 150px !important;
+  }
+  .tpd-side-text .tpd-side-text-wrapper .tpd-content-description {
+    font-size: 24px;
+  }
+}
 `;
+

@@ -12,16 +12,16 @@ const ComponentTypes = ["h1", "h2"];
 
 const PreviewMode = (props: TPreviewModeProps) => {
   const {
-    value: { value: text },
+    value,
     componentType,
   } = props;
 
   const imgContainer = () => {
-    return text.includes("<img");
+    return value?.value?.includes("<img");
   };
 
   const RichTextContent = () => {
-    let htmlObject = parse(text);
+    let htmlObject = parse(value?.value);
     if (componentType && ComponentTypes.includes(componentType)) {
       htmlObject = React.createElement(
         componentType,
@@ -42,7 +42,7 @@ const PreviewMode = (props: TPreviewModeProps) => {
     );
   };
 
-  return <PreviewContainer>{text && <RichTextContent />}</PreviewContainer>;
+  return <PreviewContainer>{value?.value && <RichTextContent />}</PreviewContainer>;
 };
 
 export default PreviewMode;

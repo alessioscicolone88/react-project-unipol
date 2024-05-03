@@ -14,8 +14,14 @@ import { CacheProvider } from "@emotion/react";
 const App = (props: CommonMFE.Types.TProps) => {
   const { __host__, config, isEditMode, id: containerID } = props;
 
-  const richText = config["Testo"];
-  const tpdImage = config["Immagine"];
+  const [richText, setRichText] = React.useState(null)
+  const [tpdImage, setTpdImage] = React.useState(null)
+
+  React.useEffect(() => {
+    setRichText(config?.["Testo"]);
+    setTpdImage(config?.["Immagine"]);
+
+  },[config])
 
   return (
     <ContainerDiv  isVisible={true}>

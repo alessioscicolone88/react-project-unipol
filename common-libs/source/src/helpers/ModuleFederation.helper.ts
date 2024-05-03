@@ -311,7 +311,7 @@ function loadRemoteClientScript(url: string): Promise<boolean> {
         return resolve(true);
       } else {
         const element = document.createElement("script");
-        element.src = "http://localhost:8000"+url;
+        element.src = url;
         element.type = "text/javascript";
         element.async = true;
 
